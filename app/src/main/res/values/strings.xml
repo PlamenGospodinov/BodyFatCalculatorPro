@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">BodyFatCalculatorPro</string>
+    <string name="bodyfatcalculatorpro">BodyFatCalculatorPro</string>
+    <string name="home_page">Home Page</string>
+    <string name="buttonBasic">Basic Body Fat Calculator</string>
 </resources>
