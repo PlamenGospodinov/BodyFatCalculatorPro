@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#EB7106CF"
+
+    >
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:context=".MainActivity">
+
+
+
+        <TextView
+            android:id="@+id/header"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="#FFEB3B"
+            android:fontFamily="sans-serif-black"
+            android:shadowColor="#270819"
+            android:shadowDx="15"
+            android:shadowDy="10"
+            android:shadowRadius="20"
+            android:text="@string/bodyfatcalculatorpro"
+            android:textAlignment="center"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+            android:textColor="#02000B"
+            android:textSize="30sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:gravity="center_horizontal" />
+
+        <TextView
+            android:id="@+id/gender"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:background="@drawable/rounded_corner"
+            android:shadowColor="#73445E"
+            android:shadowDx="15"
+            android:shadowDy="10"
+            android:shadowRadius="20"
+            android:text="@string/gender"
+            android:textColor="#2B020D"
+            android:textSize="30sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/header" />
+
+        <RadioGroup
+            android:id="@+id/genderGroup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/rounded_corner2"
+            android:orientation="horizontal"
+            android:padding="5dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/gender">
+
+            <RadioButton
+                android:id="@+id/radio_male"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="true"
+
+                android:text="@string/male"
+                android:textSize="25sp"
+                app:layout_constraintStart_toEndOf="@+id/gender"
+                app:layout_constraintTop_toBottomOf="@+id/bodyFatTitle" />
+
+            <RadioButton
+                android:id="@+id/radio_female"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="25sp"
+                android:checked="false"
+
+                android:text="@string/female"
+                android:textSize="25sp"
+                app:layout_constraintStart_toEndOf="@+id/radio_male"
+                app:layout_constraintTop_toBottomOf="@+id/bodyFatTitle"
+                android:layout_marginLeft="25sp" />
+        </RadioGroup>
+
+        <TextView
+            android:id="@+id/age"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="35dp"
+            android:background="@drawable/rounded_corner"
+            android:shadowColor="#73445E"
+            android:shadowDx="15"
+            android:shadowDy="10"
+            android:shadowRadius="20"
+            android:text="@string/age"
+            android:textColor="#070000"
+            android:textColorHint="#000000"
+            android:textSize="30sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/genderGroup" />
+
+        <EditText
+            android:id="@+id/ageEdit"
+            android:layout_width="250sp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/rounded_corner2"
+            android:hint="@string/enter_your_age"
+            android:importantForAutofill="no"
+            android:inputType="numberDecimal"
+            android:textAlignment="center"
+            android:textColorHint="#52360083"
+            android:textSize="25sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.503"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/age"
+            android:gravity="center_horizontal">
+
+        </EditText>
+
+        <TextView
+            android:id="@+id/weight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="35dp"
+            android:background="@drawable/rounded_corner"
+            android:shadowColor="#73445E"
+            android:shadowDx="15"
+            android:shadowDy="10"
+            android:shadowRadius="20"
+            android:text="@string/weight"
+            android:textColor="#070000"
+            android:textColorHint="#000000"
+            android:textSize="30sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ageEdit" />
+
+        <EditText
+            android:id="@+id/weightEdit"
+            android:layout_width="250sp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/rounded_corner2"
+            android:hint="@string/weight_in_kgs"
+            android:importantForAutofill="no"
+            android:inputType="number"
+            android:textAlignment="center"
+            android:textColorHint="#52360083"
+            android:textSize="25sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/weight"
+            android:gravity="center_horizontal">
+
+        </EditText>
+
+        <TextView
+            android:id="@+id/height"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="35dp"
+            android:background="@drawable/rounded_corner"
+            android:shadowColor="#73445E"
+            android:shadowDx="15"
+            android:shadowDy="10"
+            android:shadowRadius="20"
+            android:text="@string/height"
+            android:textColor="#070000"
+            android:textColorHint="#000000"
+            android:textSize="30sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/weightEdit" />
+
+        <EditText
+            android:id="@+id/heightEdit"
+            android:layout_width="250sp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5sp"
+            android:background="@drawable/rounded_corner2"
+            android:hint="@string/height_in_cm"
+            android:importantForAutofill="no"
+            android:inputType="number"
+            android:textAlignment="center"
+            android:textColorHint="#52360083"
+            android:textSize="25sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/height"
+            android:gravity="center_horizontal">
+
+        </EditText>
+
+        <Button
+            android:id="@+id/calculate_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#FF9903"
+            android:shadowColor="#73445E"
+            android:shadowDx="15"
+            android:shadowDy="10"
+            android:shadowRadius="20"
+            android:text="@string/calculate"
+            android:textSize="40sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/heightEdit" />
+
+        <Button
+            android:id="@+id/resetBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="@string/reset"
+            android:backgroundTint="#FFC258"
+            android:shadowColor="#73445E"
+            android:shadowDx="15"
+            android:shadowDy="10"
+            android:shadowRadius="20"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/calculate_button" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
