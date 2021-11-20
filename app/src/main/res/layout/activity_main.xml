@@ -12,7 +12,7 @@
         android:id="@+id/buttonBasic"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="84dp"
+        android:layout_marginTop="104dp"
         android:text="Basic Body Fat\nCalculator"
         android:textSize="25sp"
         app:layout_constraintEnd_toEndOf="parent"
