@@ -14,13 +14,13 @@
         tools:context=".MainActivity">
 
 
-
         <TextView
             android:id="@+id/header"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:background="#FFEB3B"
             android:fontFamily="sans-serif-black"
+            android:gravity="center_horizontal"
             android:shadowColor="#270819"
             android:shadowDx="15"
             android:shadowDy="10"
@@ -32,8 +32,7 @@
             android:textSize="30sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            android:gravity="center_horizontal" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/gender"
@@ -80,13 +79,13 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="25sp"
-                android:checked="false"
+                android:layout_marginLeft="25sp"
 
+                android:checked="false"
                 android:text="@string/female"
                 android:textSize="25sp"
                 app:layout_constraintStart_toEndOf="@+id/radio_male"
-                app:layout_constraintTop_toBottomOf="@+id/bodyFatTitle"
-                android:layout_marginLeft="25sp" />
+                app:layout_constraintTop_toBottomOf="@+id/bodyFatTitle" />
         </RadioGroup>
 
         <TextView
@@ -113,6 +112,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
             android:background="@drawable/rounded_corner2"
+            android:gravity="center_horizontal"
             android:hint="@string/enter_your_age"
             android:importantForAutofill="no"
             android:inputType="numberDecimal"
@@ -122,8 +122,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.503"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/age"
-            android:gravity="center_horizontal">
+            app:layout_constraintTop_toBottomOf="@+id/age">
 
         </EditText>
 
@@ -151,6 +150,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
             android:background="@drawable/rounded_corner2"
+            android:gravity="center_horizontal"
             android:hint="@string/weight_in_kgs"
             android:importantForAutofill="no"
             android:inputType="number"
@@ -159,10 +159,11 @@
             android:textSize="25sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/weight"
-            android:gravity="center_horizontal">
+            app:layout_constraintTop_toBottomOf="@+id/weight">
 
         </EditText>
+
+
 
         <TextView
             android:id="@+id/height"
@@ -188,6 +189,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="5sp"
             android:background="@drawable/rounded_corner2"
+            android:gravity="center_horizontal"
             android:hint="@string/height_in_cm"
             android:importantForAutofill="no"
             android:inputType="number"
@@ -196,8 +198,118 @@
             android:textSize="25sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/height"
-            android:gravity="center_horizontal">
+            app:layout_constraintTop_toBottomOf="@+id/height">
+
+        </EditText>
+
+        <TextView
+            android:id="@+id/neck"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="35dp"
+            android:background="@drawable/rounded_corner"
+            android:shadowColor="#73445E"
+            android:shadowDx="15"
+            android:shadowDy="10"
+            android:shadowRadius="20"
+            android:text="@string/neck"
+            android:textColor="#070000"
+            android:textColorHint="#000000"
+            android:textSize="30sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/heightEdit" />
+
+        <EditText
+            android:id="@+id/neckEdit"
+            android:layout_width="250sp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5sp"
+            android:background="@drawable/rounded_corner2"
+            android:gravity="center_horizontal"
+            android:hint="@string/neck_circumference"
+            android:importantForAutofill="no"
+            android:inputType="number"
+            android:textAlignment="center"
+            android:textColorHint="#52360083"
+            android:textSize="25sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/neck">
+
+        </EditText>
+
+        <TextView
+            android:id="@+id/waist"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="35dp"
+            android:background="@drawable/rounded_corner"
+            android:shadowColor="#73445E"
+            android:shadowDx="15"
+            android:shadowDy="10"
+            android:shadowRadius="20"
+            android:text="@string/waist"
+            android:textColor="#070000"
+            android:textColorHint="#000000"
+            android:textSize="30sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/neckEdit" />
+
+        <EditText
+            android:id="@+id/waistEdit"
+            android:layout_width="250sp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5sp"
+            android:background="@drawable/rounded_corner2"
+            android:gravity="center_horizontal"
+            android:hint="@string/waist_circumference"
+            android:importantForAutofill="no"
+            android:inputType="number"
+            android:textAlignment="center"
+            android:textColorHint="#52360083"
+            android:textSize="25sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/waist">
+
+        </EditText>
+
+        <TextView
+            android:id="@+id/hip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="35dp"
+            android:background="@drawable/rounded_corner"
+            android:shadowColor="#73445E"
+            android:shadowDx="15"
+            android:shadowDy="10"
+            android:shadowRadius="20"
+            android:text="@string/hip"
+            android:textColor="#070000"
+            android:textColorHint="#000000"
+            android:textSize="30sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/waistEdit" />
+
+        <EditText
+            android:id="@+id/hipEdit"
+            android:layout_width="250sp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5sp"
+            android:background="@drawable/rounded_corner2"
+            android:gravity="center_horizontal"
+            android:hint="@string/hip_circumference"
+            android:importantForAutofill="no"
+            android:inputType="number"
+            android:textAlignment="center"
+            android:textColorHint="#52360083"
+            android:textSize="25sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/hip">
 
         </EditText>
 
@@ -205,6 +317,7 @@
             android:id="@+id/calculate_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+
             android:backgroundTint="#FF9903"
             android:shadowColor="#73445E"
             android:shadowDx="15"
@@ -214,21 +327,22 @@
             android:textSize="40sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/heightEdit" />
+            app:layout_constraintTop_toBottomOf="@+id/hipEdit"
+            tools:layout_editor_absoluteY="90dp" />
 
         <Button
             android:id="@+id/resetBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:text="@string/reset"
             android:backgroundTint="#FFC258"
             android:shadowColor="#73445E"
             android:shadowDx="15"
             android:shadowDy="10"
             android:shadowRadius="20"
+            android:text="@string/reset"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/calculate_button" />
+            app:layout_constraintTop_toBottomOf="@+id/calculate_button"
+            tools:layout_editor_absoluteY="220dp" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

@@ -17,4 +17,10 @@
     <string name="reset">Reset</string>
     <string name="result">Result: </string>
     <string name="bodyfatnormstable">bodyFatNormsTable</string>
+    <string name="neck">Neck</string>
+    <string name="hip_circumference">Hip circumference</string>
+    <string name="waist">Waist</string>
+    <string name="hip">Hip</string>
+    <string name="neck_circumference">Neck circumference</string>
+    <string name="waist_circumference">Waist circumference</string>
 </resources>
