@@ -122,7 +122,8 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.503"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/age">
+            app:layout_constraintTop_toBottomOf="@+id/age"
+            tools:ignore="TouchTargetSizeCheck">
 
         </EditText>
 
@@ -159,7 +160,8 @@
             android:textSize="25sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/weight">
+            app:layout_constraintTop_toBottomOf="@+id/weight"
+            tools:ignore="TouchTargetSizeCheck">
 
         </EditText>
 
@@ -198,7 +200,8 @@
             android:textSize="25sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/height">
+            app:layout_constraintTop_toBottomOf="@+id/height"
+            tools:ignore="TouchTargetSizeCheck">
 
         </EditText>
 
@@ -235,7 +238,8 @@
             android:textSize="25sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/neck">
+            app:layout_constraintTop_toBottomOf="@+id/neck"
+            tools:ignore="TouchTargetSizeCheck">
 
         </EditText>
 
