@@ -3,6 +3,8 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Plamen/AndroidStudioProjects/BodyFatCalculatorPro/app/src/main/res/layout/activity_main.xml" value="0.10326086956521739" />
+        <entry key="..\:/Users/Plamen/AndroidStudioProjects/BodyFatCalculatorPro/app/src/main/res/layout/basic_activity.xml" value="0.12708333333333333" />
         <entry key="..\:/Users/Plamen/AndroidStudioProjects/BodyFatCalculatorPro/app/src/main/res/layout/basic_result_activity.xml" value="0.25" />
         <entry key="..\:/Users/Plamen/AndroidStudioProjects/BodyFatCalculatorPro/app/src/main/res/layout/pro_activity.xml" value="0.14945652173913043" />
       </map>

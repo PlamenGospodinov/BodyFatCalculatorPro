@@ -9,15 +9,19 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.BodyFatCalculatorPro">
-        <activity android:name=".MainActivity">
+
+        <activity
+            android:name="com.forgoogleplay.bodyfatcalculatorpro.MainActivity"
+            android:label="@string/app_name"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:label="@string/app_name" android:name="BasicActivity"/>
-        <activity android:label="@string/app_name" android:name="ProActivity"/>
+        <activity android:label="@string/app_name" android:name=".BasicActivity"/>
+        <activity android:label="@string/app_name" android:name=".ProActivity"/>
 
     </application>
 
