@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#600275"
-    tools:context=".BasicResultActivityInCase">
+    tools:context=".BasicResultActivity">
 
 
     <androidx.constraintlayout.widget.ConstraintLayout

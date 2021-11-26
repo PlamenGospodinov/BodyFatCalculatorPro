@@ -21,6 +21,7 @@
             </intent-filter>
         </activity>
         <activity android:label="@string/app_name" android:name=".BasicActivity"/>
+        <activity android:label="@string/app_name" android:name=".BasicResultActivity"/>
         <activity android:label="@string/app_name" android:name=".ProActivity"/>
 
     </application>

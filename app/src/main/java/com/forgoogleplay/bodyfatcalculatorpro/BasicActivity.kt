@@ -118,7 +118,7 @@ class BasicActivity: AppCompatActivity() {
                                 //progressBar.setProgressTintList(ColorStateList.valueOf(Color.WHITE))
                             }
                             var cat = category
-                            val intent = Intent(this, BasicResultActivityInCase::class.java)
+                            val intent = Intent(this, BasicResultActivity::class.java)
                             intent.putExtra("key",bodyFatRes)
                             intent.putExtra("cat",cat)
                             startActivity(intent)
