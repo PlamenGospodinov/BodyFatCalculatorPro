@@ -23,4 +23,6 @@
     <string name="hip">Hip</string>
     <string name="neck_circumference">Neck circumference</string>
     <string name="waist_circumference">Waist circumference</string>
+    <string name="calculate_add">Calculate + add</string>
+    <string name="view">View</string>
 </resources>
