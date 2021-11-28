@@ -350,7 +350,7 @@
             tools:layout_editor_absoluteY="220dp" />
 
         <Button
-            android:id="@+id/button"
+            android:id="@+id/calcAdd"
             android:layout_width="80dp"
             android:layout_height="80dp"
 
@@ -366,7 +366,7 @@
             app:layout_constraintTop_toBottomOf="@+id/hipEdit" />
 
         <Button
-            android:id="@+id/button2"
+            android:id="@+id/viewBtn"
             android:layout_width="80dp"
             android:layout_height="80dp"
 
@@ -378,11 +378,11 @@
             android:text="@string/view"
             android:textSize="15sp"
             android:layout_marginLeft="20dp"
-            app:layout_constraintStart_toEndOf="@+id/button"
+            app:layout_constraintStart_toEndOf="@+id/calcAdd"
             app:layout_constraintTop_toBottomOf="@+id/hipEdit" />
 
         <Button
-            android:id="@+id/button3"
+            android:id="@+id/updateBtn"
             android:layout_width="80dp"
             android:layout_height="80dp"
 
@@ -394,7 +394,24 @@
             android:text="Update"
             android:textSize="15sp"
             android:layout_marginLeft="21dp"
-            app:layout_constraintStart_toEndOf="@+id/button2"
+            app:layout_constraintStart_toEndOf="@+id/viewBtn"
             app:layout_constraintTop_toBottomOf="@+id/hipEdit" />
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerView"
+            android:layout_width="match_parent"
+            android:background="@color/white"
+            android:layout_height="match_parent"
+            android:layout_marginTop="16dp"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintTop_toBottomOf="@+id/resetBtn"
+            tools:context="com.google.samples.apps.sunflower.GardenActivity" />
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+
 </ScrollView>
+
