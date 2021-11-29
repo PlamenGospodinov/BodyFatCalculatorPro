@@ -127,9 +127,20 @@ class SQLiteHelper(context:Context) : SQLiteOpenHelper(context,DATABASE_NAME,nul
             res =(495/(1.29579-0.35004*(log10(WAIST.toDouble()+ HIP.toDouble()-NECK.toDouble())) + 0.22100*(log10(HEIGHT.toDouble()))) -450).toFloat()
         }
         contentValues.put(RESULT,res)
-        val success = db.update(TBL_CALCULATOR,contentValues,"id = " + std.id,null)
+        val success = db.update(TBL_CALCULATOR,contentValues,"id=" + std.id,null)
         db.close()
         return success
 
+    }
+
+    fun deleteById(id:Int):Int{
+        val db = this.writableDatabase
+
+        val contentValues = ContentValues()
+
+        contentValues.put(ID,id)
+        val success = db.delete(TBL_CALCULATOR,"id=" + id,null)
+        db.close()
+        return success
     }
 }

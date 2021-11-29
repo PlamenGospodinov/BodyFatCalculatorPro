@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView
 class CalculatorAdapter : RecyclerView.Adapter<CalculatorAdapter.CalculatorViewHolder>() {
     private var stdList: ArrayList<CalculatorModel> = ArrayList()
     private var onClickItem: ((CalculatorModel) -> Unit)? = null
+    private var onClickDeleteItem: ((CalculatorModel) -> Unit)? = null
 
     fun addItems(items: ArrayList<CalculatorModel>){
         this.stdList = items
@@ -18,6 +19,10 @@ class CalculatorAdapter : RecyclerView.Adapter<CalculatorAdapter.CalculatorViewH
 
     fun setOnClickItem(callback: (CalculatorModel) -> Unit){
         this.onClickItem = callback
+    }
+
+    fun setOnClickDeleteItem(callback: (CalculatorModel) -> Unit){
+        this.onClickDeleteItem = callback
     }
 
     class CalculatorViewHolder(var view: View) : RecyclerView.ViewHolder(view){
@@ -30,7 +35,7 @@ class CalculatorAdapter : RecyclerView.Adapter<CalculatorAdapter.CalculatorViewH
         private var waist = view.findViewById<TextView>(R.id.waist)
         private var hip = view.findViewById<TextView>(R.id.hip)
         private var result = view.findViewById<TextView>(R.id.result)
-        private var btnDelete = view.findViewById<Button>(R.id.btnDelete)
+        var btnDelete = view.findViewById<Button>(R.id.btnDelete)
 
         fun bindView(std:CalculatorModel){
             id.text = std.id.toString()
@@ -53,6 +58,7 @@ class CalculatorAdapter : RecyclerView.Adapter<CalculatorAdapter.CalculatorViewH
         val std = stdList[position]
         holder.bindView(std)
         holder.itemView.setOnClickListener{onClickItem?.invoke(std)}
+        holder.btnDelete.setOnClickListener{onClickDeleteItem?.invoke(std)}
     }
 
     override fun getItemCount(): Int {

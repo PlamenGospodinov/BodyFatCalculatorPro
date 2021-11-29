@@ -20,6 +20,7 @@
             android:layout_height="wrap_content"
             android:text="Id" />
 
+
         <TextView
             android:id="@+id/gender"
             android:layout_width="match_parent"
@@ -70,6 +71,8 @@
             android:textSize="16dp"
             android:text="Result" />
     </LinearLayout>
+
+
 
 
     <Button

@@ -8,6 +8,7 @@ import android.os.Bundle
 import android.text.TextUtils
 import android.util.Log
 import android.widget.*
+import androidx.appcompat.app.AlertDialog
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import java.math.RoundingMode
@@ -32,7 +33,7 @@ class ProActivity: AppCompatActivity() {
     private lateinit var sqliteHelper:SQLiteHelper
     private lateinit var recyclerView: RecyclerView
     private var adapter:CalculatorAdapter? = null
-
+    private var std:CalculatorModel? = null
 
 
     private fun addCalculator(){
@@ -161,6 +162,7 @@ class ProActivity: AppCompatActivity() {
 
 
     private fun initView(){
+
         editAge = findViewById(R.id.ageEdit)
         editWeight = findViewById(R.id.weightEdit)
         editHeight = findViewById(R.id.heightEdit)
@@ -179,6 +181,7 @@ class ProActivity: AppCompatActivity() {
     private fun declareVars(){
         var gender: Int = 0
         var genderStr: String = "Male"
+
         val selectedRadioButtonId: Int = radioGroup.checkedRadioButtonId
         if (selectedRadioButtonId != -1) {
             selectedRadioButton = findViewById(selectedRadioButtonId)
@@ -297,13 +300,137 @@ class ProActivity: AppCompatActivity() {
         calcAdd.setOnClickListener{addCalculator()}
         calculate_Button.setOnClickListener {declareVars()}
         viewBtn.setOnClickListener{getCalculations()}
+        updateBtn.setOnClickListener{updateCalculator()}
         adapter?.setOnClickItem {
-            Toast.makeText(this,it.result.toString(),Toast.LENGTH_SHORT).show()
+            Toast.makeText(this,it.age.toString(),Toast.LENGTH_SHORT).show()
+            /*val selectedRadioButtonId: Int = radioGroup.checkedRadioButtonId
+            selectedRadioButton = findViewById(selectedRadioButtonId)*/
+            /*val value = it.gender
+            if(value == "Male"){
+                radioGroup.check(radio_male)
+            }*/
+
+            editAge.setText(it.age)
+            editWeight.setText(it.weight)
+            editHeight.setText(it.height)
+            editNeck.setText(it.neck)
+            editWaist.setText(it.waist)
+            editHip.setText(it.hip)
+
+            std = it
+
+        }
+        adapter?.setOnClickDeleteItem {
+            deleteCalculator(it.id)
+            getCalculations()
+
         }
         resetButton.setOnClickListener{
             ClearText()
         }
 
+    }
+
+    private fun deleteCalculator(id:Int){
+
+        val builder = AlertDialog.Builder(this)
+        builder.setMessage("Are you sure you want to delete this record?")
+        builder.setCancelable(true)
+        getCalculations()
+        builder.setPositiveButton("Yes"){dialog,_ ->
+            sqliteHelper.deleteById(id)
+            dialog.dismiss()
+        }
+        builder.setNegativeButton("No"){dialog,_ ->
+            dialog.dismiss()
+        }
+
+        val alert = builder.create()
+        alert.show()
+        getCalculations()
+    }
+
+    private fun updateCalculator() {
+        var gender: Int = 0
+        var genderStr: String = "Male"
+        val selectedRadioButtonId: Int = radioGroup.checkedRadioButtonId
+        if (selectedRadioButtonId != -1) {
+            selectedRadioButton = findViewById(selectedRadioButtonId)
+            val valuee: String = selectedRadioButton.text.toString()
+            if (valuee == "Male") {
+                gender = 0
+                genderStr = "Male"
+            } else {
+                gender = 1
+                genderStr = "Female"
+            }
+        }
+        val age = editAge.text.toString().toDouble()
+        val weight = editWeight.text.toString().toDouble()
+        val height = editHeight.text.toString().toDouble()
+        val neck = editNeck.text.toString().toDouble()
+        val waist = editWaist.text.toString().toDouble()
+        val hip = editHip.text.toString().toDouble()
+        //genderStr == std?.gender &&
+        if(age.toInt() == std?.age && weight.toInt() == std?.weight &&
+        height.toInt() == std?.height && neck.toInt() == std?.neck &&
+                waist.toInt() == std?.waist && hip.toInt() == std?.hip)
+                {
+
+            Toast.makeText(this,"Record not changed...",Toast.LENGTH_LONG).show()
+            return
+        }
+        val heightInMeters: Double = height.toDouble() / 100
+        val heightInSecond: Double = heightInMeters * heightInMeters
+        val bmi: Double = weight / heightInSecond
+        val bmiSecond: Double = bmi * bmi
+        var bodyFat: Double = 1.0
+        if(genderStr=="Male"){
+            bodyFat =495/(1.0324-0.19077*(log10(waist-neck)) + 0.15456*(log10(height))) -450
+        }
+        else if(genderStr=="Female"){
+            bodyFat =495/(1.29579-0.35004*(log10(waist+hip-neck)) + 0.22100*(log10(height))) -450
+        }
+        val df = DecimalFormat("#.##")
+        category = "Obese"
+        df.roundingMode = RoundingMode.CEILING
+        val bodyFatRes = df.format(bodyFat).toDouble()
+        if ((bodyFatRes >= 25 && genderStr == "Male") || (bodyFatRes >= 32 && genderStr == "Female")) {
+            category = "Obese"
+            //progressBar.setProgressTintList(ColorStateList.valueOf(Color.BLACK))
+        } else if ((bodyFatRes >= 18 && bodyFatRes < 25 && genderStr == "Male") || (bodyFatRes < 32 && bodyFatRes >= 25 && genderStr == "Female")) {
+            category = "Average"
+            //progressBar.setProgressTintList(ColorStateList.valueOf(Color.RED))
+        } else if ((bodyFatRes >= 14 && bodyFatRes < 18 && genderStr == "Male") || (bodyFatRes < 25 && bodyFatRes >= 21 && genderStr == "Female")) {
+            category = "Fitness"
+            // progressBar.setProgressTintList(ColorStateList.valueOf(Color.GREEN))
+        } else if ((bodyFatRes >= 6 && bodyFatRes < 14 && genderStr == "Male") || (bodyFatRes < 21 && bodyFatRes >= 14 && genderStr == "Female")) {
+            category = "Athlete"
+            // progressBar.setProgressTintList(ColorStateList.valueOf(Color.CYAN))
+        } else if ((bodyFatRes >= 2 && bodyFatRes < 5.1 && genderStr == "Male") || (bodyFatRes < 14 && bodyFatRes >= 10 && genderStr == "Female")) {
+            category = "Essential Fat"
+            //progressBar.setProgressTintList(ColorStateList.valueOf(Color.WHITE))
+        }
+        var cat = category
+
+
+        if(std == null){
+            return
+        }
+
+        val std = CalculatorModel(id = std!!.id, gender = genderStr,age = age.toInt(),
+                weight = weight.toInt(),height = height.toInt(),
+                neck = neck.toInt(),waist = waist.toInt(),
+                hip = hip.toInt(),result = bodyFat.toFloat())
+        val status = sqliteHelper.updateCalculator(std)
+
+        if(status > -1){
+            ClearText()
+            getCalculations()
+        }
+        else{
+            Toast.makeText(this,"Update failed...",Toast.LENGTH_SHORT).show()
+        }
     }
 
     private fun getCalculations(){
@@ -320,6 +447,8 @@ class ProActivity: AppCompatActivity() {
         editHip.setText("")
         editWaist.setText("")
         editNeck.setText("")
+        editAge.requestFocus()
+
     }
 
     private fun initRecyclerView(){
