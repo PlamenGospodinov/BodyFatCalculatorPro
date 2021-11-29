@@ -4,16 +4,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#9578C6"
+    android:background="#7937E6"
     tools:context=".MainActivity">
 
 
     <Button
         android:id="@+id/buttonBasic"
-        android:onClick="goToBasicActivity"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="104dp"
+        android:onClick="goToBasicActivity"
         android:text="Basic Body Fat\nCalculator"
         android:textSize="25sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -21,11 +21,11 @@
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
     <Button
-        android:onClick="goToProActivity"
         android:id="@+id/buttonBasic2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="54dp"
+        android:onClick="goToProActivity"
         android:text="Advanced Body Fat\nCalculator"
         android:textSize="25sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -36,8 +36,9 @@
         android:id="@+id/header"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:background="#FFFFFF"
         android:text="@string/bodyfatcalculatorpro"
-        android:textColor="@color/white"
+        android:textColor="@color/black"
         android:textSize="35sp"
         android:textStyle="bold|italic"
         app:layout_constraintEnd_toEndOf="parent"
