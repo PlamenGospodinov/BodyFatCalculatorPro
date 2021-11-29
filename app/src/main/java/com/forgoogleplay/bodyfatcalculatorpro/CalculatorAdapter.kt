@@ -16,6 +16,10 @@ class CalculatorAdapter : RecyclerView.Adapter<CalculatorAdapter.CalculatorViewH
         notifyDataSetChanged()
     }
 
+    fun setOnClickItem(callback: (CalculatorModel) -> Unit){
+        this.onClickItem = callback
+    }
+
     class CalculatorViewHolder(var view: View) : RecyclerView.ViewHolder(view){
         private var id = view.findViewById<TextView>(R.id.tvId)
         private var gender = view.findViewById<TextView>(R.id.gender)
@@ -48,7 +52,7 @@ class CalculatorAdapter : RecyclerView.Adapter<CalculatorAdapter.CalculatorViewH
     override fun onBindViewHolder(holder: CalculatorViewHolder, position: Int) {
         val std = stdList[position]
         holder.bindView(std)
-        holder.itemView.setOnClickListener{}
+        holder.itemView.setOnClickListener{onClickItem?.invoke(std)}
     }
 
     override fun getItemCount(): Int {

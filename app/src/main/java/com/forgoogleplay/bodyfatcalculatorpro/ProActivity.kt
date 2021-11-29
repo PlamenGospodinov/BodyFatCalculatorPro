@@ -297,6 +297,9 @@ class ProActivity: AppCompatActivity() {
         calcAdd.setOnClickListener{addCalculator()}
         calculate_Button.setOnClickListener {declareVars()}
         viewBtn.setOnClickListener{getCalculations()}
+        adapter?.setOnClickItem {
+            Toast.makeText(this,it.result.toString(),Toast.LENGTH_SHORT).show()
+        }
         resetButton.setOnClickListener{
             ClearText()
         }

@@ -6,6 +6,7 @@ import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
 import java.lang.Exception
+import kotlin.math.log10
 
 class SQLiteHelper(context:Context) : SQLiteOpenHelper(context,DATABASE_NAME,null,DATABASE_VERSION) {
     companion object{
@@ -103,5 +104,32 @@ class SQLiteHelper(context:Context) : SQLiteOpenHelper(context,DATABASE_NAME,nul
         }
 
         return  stdList
+    }
+
+    fun updateCalculator(std:CalculatorModel): Int{
+        val db = this.writableDatabase
+
+        val contentValues = ContentValues()
+        contentValues.put(ID,std.id)
+        contentValues.put(GENDER,std.gender)
+        contentValues.put(AGE,std.age)
+        contentValues.put(WEIGHT,std.weight)
+        contentValues.put(HEIGHT,std.height)
+        contentValues.put(NECK,std.neck)
+        contentValues.put(WAIST,std.waist)
+        contentValues.put(HIP,std.hip)
+
+        var res:Float = 0.0f
+        if(GENDER=="Male"){
+            res =(495/(1.0324-0.19077*(log10(WAIST.toDouble()-NECK.toDouble())) + 0.15456*(log10(HEIGHT.toDouble()))) -450).toFloat()
+        }
+        else if(GENDER=="Female"){
+            res =(495/(1.29579-0.35004*(log10(WAIST.toDouble()+ HIP.toDouble()-NECK.toDouble())) + 0.22100*(log10(HEIGHT.toDouble()))) -450).toFloat()
+        }
+        contentValues.put(RESULT,res)
+        val success = db.update(TBL_CALCULATOR,contentValues,"id = " + std.id,null)
+        db.close()
+        return success
+
     }
 }
