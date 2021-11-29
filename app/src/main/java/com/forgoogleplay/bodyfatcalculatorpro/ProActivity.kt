@@ -310,12 +310,12 @@ class ProActivity: AppCompatActivity() {
                 radioGroup.check(radio_male)
             }*/
 
-            editAge.setText(it.age)
-            editWeight.setText(it.weight)
-            editHeight.setText(it.height)
-            editNeck.setText(it.neck)
-            editWaist.setText(it.waist)
-            editHip.setText(it.hip)
+            editAge.setText(it.age.toString())
+            editWeight.setText(it.weight.toString())
+            editHeight.setText(it.height.toString())
+            editNeck.setText(it.neck.toString())
+            editWaist.setText(it.waist.toString())
+            editHip.setText(it.hip.toString())
 
             std = it
 
